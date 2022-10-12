@@ -1,6 +1,6 @@
 <?php
 $prefix = strtoupper(explode('.php', basename(__FILE__))[0]);
-define('MODULE_PAYMENT_' . $prefix . '_STATUS', "True");
+define('MODULE_PAYMENT_' . $prefix . '_STATUS', "False");
 define('MODULE_PAYMENT_' . $prefix . '_SORT_ORDER', 1);
 
 define('MODULE_PAYMENT_' . $prefix . '_TEXT_TITLE', "Ginger Tooling");

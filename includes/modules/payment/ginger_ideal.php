@@ -44,7 +44,7 @@ class ginger_ideal extends gingerPaymentDefault
         global $messageStack;
 
         if (empty($this->getIssuerId())) {
-            $messageStack->add_session('checkout_payment', constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ERROR_ISSUER), 'error');
+            $messageStack->add_session('checkout_payment', constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ERROR_ISSUER'), 'error');
             zen_redirect(zen_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL'));
         }
     }

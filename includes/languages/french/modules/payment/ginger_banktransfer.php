@@ -1,7 +1,6 @@
 <?php
 $method_name = strtoupper(explode('.php',basename(__FILE__))[0]);
-define('MODULE_PAYMENT_'.$method_name.'_STATUS', "True");
-define('MODULE_PAYMENT_'.$method_name.'_SORT_ORDER', 1);
+
 define('MODULE_PAYMENT_'.$method_name.'_ORDER_DESCRIPTION', "Votre commande %s à %s");
 
 define('MODULE_PAYMENT_'.$method_name.'_TEXT_TITLE', "Virement Bancaire");

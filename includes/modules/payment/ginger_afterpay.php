@@ -22,8 +22,8 @@ class ginger_afterpay extends gingerPaymentDefault
         $sort_order = parent::install();
 
         $this->setConfigurationField([
-            'configuration_title' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _TEST_API_KEY_TEXT),
-            'configuration_description' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _TEST_API_KEY_DESCRIPTION),
+            'configuration_title' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_TEST_API_KEY_TEXT'),
+            'configuration_description' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_TEST_API_KEY_DESCRIPTION'),
             'configuration_key' => 'MODULE_PAYMENT_' . strtoupper($this->code) . '_TEST_API_KEY',
             'configuration_value' => '',
             'configuration_group_id' => 6,
@@ -32,8 +32,8 @@ class ginger_afterpay extends gingerPaymentDefault
         $sort_order += 1;
 
         $this->setConfigurationField([
-            'configuration_title' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _IP_FILTERING_TEXT),
-            'configuration_description' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _IP_FILTERING_DESCRIPTION),
+            'configuration_title' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_IP_FILTERING_TEXT'),
+            'configuration_description' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_IP_FILTERING_DESCRIPTION'),
             'configuration_key' => 'MODULE_PAYMENT_' . strtoupper($this->code) . '_IP_FILTERING',
             'configuration_value' => '',
             'configuration_group_id' => 6,
@@ -42,8 +42,8 @@ class ginger_afterpay extends gingerPaymentDefault
         $sort_order += 1;
 
         $this->setConfigurationField([
-            'configuration_title' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _COUNTRIES_AVAILABLE_TEXT),
-            'configuration_description' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _COUNTRIES_AVAILABLE_DESCRIPTION),
+            'configuration_title' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_COUNTRIES_AVAILABLE_TEXT'),
+            'configuration_description' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_COUNTRIES_AVAILABLE_DESCRIPTION'),
             'configuration_key' => 'MODULE_PAYMENT_' . strtoupper($this->code) . '_COUNTRIES_AVAILABLE',
             'configuration_value' => 'NL, BE',
             'configuration_group_id' => 6,
@@ -106,15 +106,15 @@ class ginger_afterpay extends gingerPaymentDefault
             '   var ' . $this->code . '_gender = document.checkout_payment.' . $this->code . '_gender.value;' . "\n" .
             '   var ' . $this->code . '_dob = document.checkout_payment.' . $this->code . '_dob.value;' . "\n" .
             '   if (' . $this->code . '_gender == "") {' . "\n" .
-            '       error_message = error_message + "' . constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ERROR_GENDER) . '";' . "\n" .
+            '       error_message = error_message + "' . constant("MODULE_PAYMENT_" . strtoupper($this->code) . "_ERROR_GENDER") . '";' . "\n" .
             '       error = 1;' . "\n" .
             '   }' . "\n" .
             '   if (' . $this->code . '_dob == "") {' . "\n" .
-            '       error_message = error_message + "' . constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ERROR_DOB) . '";' . "\n" .
+            '       error_message = error_message + "' . constant("MODULE_PAYMENT_" . strtoupper($this->code) . "_ERROR_DOB") . '";' . "\n" .
             '       error = 1;' . "\n" .
             '   }' . "\n" .
             '   if (' . $this->code . '_terms_and_conditions == false) {' . "\n" .
-            '       error_message = error_message + "' . constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ERROR_TERMS_AND_CONDITIONS) . '";' . "\n" .
+            '       error_message = error_message + "' . constant("MODULE_PAYMENT_" . strtoupper($this->code) . "_ERROR_TERMS_AND_CONDITIONS") . '";' . "\n" .
             '       error = 1;' . "\n" .
             '   }' . "\n" .
             '}' . "\n";

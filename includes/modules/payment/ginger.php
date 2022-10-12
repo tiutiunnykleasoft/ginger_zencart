@@ -20,13 +20,13 @@ class ginger extends gingerPaymentDefault
         $sort_order = 0;
 
         if (defined('MODULE_PAYMENT_' . strtoupper($this->code) . '_STATUS')) {
-            $messageStack->add_session(constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ERROR_ALREADY_INSTALLED), 'error');
+            $messageStack->add_session(constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ERROR_ALREADY_INSTALLED'), 'error');
             zen_redirect(zen_href_link(FILENAME_MODULES, 'set=payment&module=' . $this->code, 'SSL'));
             return 'failed';
         }
         $this->setConfigurationField([
-            'configuration_title' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _STATUS_TEXT),
-            'configuration_description' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _STATUS_DESCRIPTION),
+            'configuration_title' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_STATUS_TEXT'),
+            'configuration_description' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_STATUS_DESCRIPTION'),
             'configuration_key' => 'MODULE_PAYMENT_' . strtoupper($this->code) . '_STATUS',
             'configuration_value' => 'True',
             'configuration_group_id' => 6,
@@ -36,8 +36,8 @@ class ginger extends gingerPaymentDefault
         $sort_order += 1;
 
         $this->setConfigurationField([
-            'configuration_title' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _API_KEY_TEXT),
-            'configuration_description' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _API_KEY_DESCRIPTION),
+            'configuration_title' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_API_KEY_TEXT'),
+            'configuration_description' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_API_KEY_DESCRIPTION'),
             'configuration_key' => 'MODULE_PAYMENT_' . strtoupper($this->code) . '_API_KEY',
             'configuration_value' => '',
             'configuration_group_id' => 6,
@@ -46,8 +46,8 @@ class ginger extends gingerPaymentDefault
         $sort_order += 1;
 
         $this->setConfigurationField([
-            'configuration_title' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _BUNDLE_CA_TEXT),
-            'configuration_description' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _BUNDLE_CA_DESCRIPTION),
+            'configuration_title' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_BUNDLE_CA_TEXT'),
+            'configuration_description' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_BUNDLE_CA_DESCRIPTION'),
             'configuration_key' => 'MODULE_PAYMENT_' . strtoupper($this->code) . '_BUNDLE_CA',
             'configuration_value' => 'True',
             'configuration_group_id' => 6,
@@ -57,8 +57,8 @@ class ginger extends gingerPaymentDefault
         $sort_order += 1;
 
         $this->setConfigurationField([
-            'configuration_title' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ORDER_STATUS_COMPLETED_TEXT),
-            'configuration_description' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ORDER_STATUS_COMPLETED_DESCRIPTION),
+            'configuration_title' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ORDER_STATUS_COMPLETED_TEXT'),
+            'configuration_description' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ORDER_STATUS_COMPLETED_DESCRIPTION'),
             'configuration_key' => 'MODULE_PAYMENT_' . strtoupper($this->code) . '_ORDER_STATUS_COMPLETED',
             'configuration_value' => 0,
             'configuration_group_id' => 6,
@@ -69,8 +69,8 @@ class ginger extends gingerPaymentDefault
         $sort_order += 1;
 
         $this->setConfigurationField([
-            'configuration_title' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ORDER_STATUS_PENDING_TEXT),
-            'configuration_description' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ORDER_STATUS_PENDING_DESCRIPTION),
+            'configuration_title' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ORDER_STATUS_PENDING_TEXT'),
+            'configuration_description' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ORDER_STATUS_PENDING_DESCRIPTION'),
             'configuration_key' => 'MODULE_PAYMENT_' . strtoupper($this->code) . '_ORDER_STATUS_PENDING',
             'configuration_value' => 0,
             'configuration_group_id' => 6,
@@ -81,8 +81,8 @@ class ginger extends gingerPaymentDefault
         $sort_order += 1;
 
         $this->setConfigurationField([
-            'configuration_title' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ORDER_STATUS_ERROR_TEXT),
-            'configuration_description' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ORDER_STATUS_ERROR_DESCRIPTION),
+            'configuration_title' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ORDER_STATUS_ERROR_TEXT'),
+            'configuration_description' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ORDER_STATUS_ERROR_DESCRIPTION'),
             'configuration_key' => 'MODULE_PAYMENT_' . strtoupper($this->code) . '_ORDER_STATUS_ERROR',
             'configuration_value' => 0,
             'configuration_group_id' => 6,
@@ -93,8 +93,8 @@ class ginger extends gingerPaymentDefault
         $sort_order += 1;
 
         $this->setConfigurationField([
-            'configuration_title' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ORDER_STATUS_PROCESSING_TEXT),
-            'configuration_description' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ORDER_STATUS_PROCESSING_DESCRIPTION),
+            'configuration_title' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ORDER_STATUS_PROCESSING_TEXT'),
+            'configuration_description' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ORDER_STATUS_PROCESSING_DESCRIPTION'),
             'configuration_key' => 'MODULE_PAYMENT_' . strtoupper($this->code) . '_ORDER_STATUS_PROCESSING',
             'configuration_value' => 0,
             'configuration_group_id' => 6,
@@ -105,8 +105,8 @@ class ginger extends gingerPaymentDefault
         $sort_order += 1;
 
         $this->setConfigurationField([
-            'configuration_title' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ORDER_STATUS_CANCELLED_TEXT),
-            'configuration_description' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ORDER_STATUS_CANCELLED_DESCRIPTION),
+            'configuration_title' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ORDER_STATUS_CANCELLED_TEXT'),
+            'configuration_description' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ORDER_STATUS_CANCELLED_DESCRIPTION'),
             'configuration_key' => 'MODULE_PAYMENT_' . strtoupper($this->code) . '_ORDER_STATUS_CANCELLED',
             'configuration_value' => 0,
             'configuration_group_id' => 6,
@@ -117,8 +117,8 @@ class ginger extends gingerPaymentDefault
         $sort_order += 1;
 
         $this->setConfigurationField([
-            'configuration_title' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ORDER_STATUS_SHIPPED_TEXT),
-            'configuration_description' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ORDER_STATUS_SHIPPED_DESCRIPTION),
+            'configuration_title' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ORDER_STATUS_SHIPPED_TEXT'),
+            'configuration_description' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ORDER_STATUS_SHIPPED_DESCRIPTION'),
             'configuration_key' => 'MODULE_PAYMENT_' . strtoupper($this->code) . '_ORDER_STATUS_SHIPPED',
             'configuration_value' => 0,
             'configuration_group_id' => 6,
