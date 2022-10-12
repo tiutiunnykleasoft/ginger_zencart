@@ -196,13 +196,16 @@ class baseGingerGateway extends base
      */
     public static function getApiKey($code = GINGER_BANK_PREFIX)
     {
-        if (strlen(constant("MODULE_PAYMENT_GINGER_KLARNA_TEST_API_KEY")) === 32 && $code == constant("GINGER_BANK_PREFIX") . '_klarnapaylater') {
+        if (defined("MODULE_PAYMENT_GINGER_KLARNA_TEST_API_KEY") && strlen(constant("MODULE_PAYMENT_GINGER_KLARNA_TEST_API_KEY")) === 32 && $code == constant("GINGER_BANK_PREFIX") . '_klarnapaylater') {
             $apiKey = constant("MODULE_PAYMENT_GINGER_KLARNA_TEST_API_KEY");
-        } elseif (strlen(constant("MODULE_PAYMENT_GINGER_AFTERPAY_TEST_API_KEY")) === 32 && $code == constant("GINGER_BANK_PREFIX") . '_afterpay') {
+        } elseif (defined("MODULE_PAYMENT_GINGER_AFTERPAY_TEST_API_KEY") && strlen(constant("MODULE_PAYMENT_GINGER_AFTERPAY_TEST_API_KEY")) === 32 && $code == constant("GINGER_BANK_PREFIX") . '_afterpay') {
             $apiKey = constant("MODULE_PAYMENT_GINGER_AFTERPAY_TEST_API_KEY");
-        } else {
+        } elseif (defined("MODULE_PAYMENT_" . strtoupper(constant("GINGER_BANK_PREFIX")) . "_API_KEY")) {
             $apiKey = constant("MODULE_PAYMENT_" . strtoupper(constant("GINGER_BANK_PREFIX")) . "_API_KEY");
+        } else {
+            $apiKey = null;
         }
+
         return strlen($apiKey) == 32 ? $apiKey : null;
     }
 

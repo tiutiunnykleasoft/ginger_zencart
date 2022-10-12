@@ -31,8 +31,18 @@ class gingerPaymentDefault extends gingerGateway
 
         $this->title = constant("MODULE_PAYMENT_" . strtoupper($this->code) . "_TEXT_TITLE");
         $this->description = constant("MODULE_PAYMENT_" . strtoupper($this->code) . "_TEXT_DESCRIPTION");
-        $this->sort_order = constant("MODULE_PAYMENT_" . strtoupper($this->code) . "_SORT_ORDER");
-        $this->enabled = (constant("MODULE_PAYMENT_" . strtoupper($this->code) . "_STATUS") == 'True');
+
+        if (defined("MODULE_PAYMENT_" . strtoupper($this->code) . "_SORT_ORDER")) {
+            $this->sort_order = constant("MODULE_PAYMENT_" . strtoupper($this->code) . "_SORT_ORDER");
+        } else {
+            $this->sort_order = 1;
+        }
+
+        if (defined("MODULE_PAYMENT_" . strtoupper($this->code) . "_STATUS")) {
+            $this->enabled = (constant("MODULE_PAYMENT_" . strtoupper($this->code) . "_STATUS") == 'True');
+        } else {
+            $this->enabled = false;
+        }
 
         if (is_object($order) && $this->enabled) {
             $this->update_status();
@@ -56,7 +66,7 @@ class gingerPaymentDefault extends gingerGateway
                 $this->title .= '<span class="alert">' . $exception->getMessage() . '</span>';
             }
             if ($this->ginger === null) {
-                $this->title .= '<span class="alert">' . constant(MODULE_PAYMENT_ . strtoupper(GINGER_BANK_PREFIX) . _ERROR_API_KEY) . '</span>';
+                $this->title .= '<span class="alert">' . constant('MODULE_PAYMENT_' . strtoupper(constant('GINGER_BANK_PREFIX')) . '_ERROR_API_KEY') . '</span>';
             }
         }
 
@@ -70,7 +80,7 @@ class gingerPaymentDefault extends gingerGateway
      */
     function gingerKlarnaPayLaterIpFiltering()
     {
-        $gingerKlarnaPayLaterIpList = constant(MODULE_PAYMENT_ . strtoupper($this->code) . _IP_FILTERING);
+        $gingerKlarnaPayLaterIpList = constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_IP_FILTERING');
 
         if (strlen($gingerKlarnaPayLaterIpList) > 0) {
             $ip_whitelist = array_map('trim', explode(",", $gingerKlarnaPayLaterIpList));
@@ -92,7 +102,7 @@ class gingerPaymentDefault extends gingerGateway
     {
         global $messageStack;
 
-        $currency_option = trim(constant(MODULE_PAYMENT_ . strtoupper($this->code) . _CURRENCIES));
+        $currency_option = trim(constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_CURRENCIES'));
         $currency_list = explode(',', $currency_option);
         $check = array_map(function ($code) {
             $regex = "/^[A-Z]{3}$/";
@@ -102,7 +112,7 @@ class gingerPaymentDefault extends gingerGateway
             return true;
         }, $currency_list);
         if (in_array(false, $check)) {
-            $this->title .= '<span style="margin: 10px; background-color: yellow; color: black;">' . constant(MODULE_PAYMENT_ . strtoupper(GINGER_BANK_PREFIX) . _WARNING_BAD_CURRENCIES_LIST) . '</span>';
+            $this->title .= '<span style="margin: 10px; background-color: yellow; color: black;">' . constant('MODULE_PAYMENT_' . strtoupper(constant('GINGER_BANK_PREFIX')) . '_WARNING_BAD_CURRENCIES_LIST') . '</span>';
         }
     }
 
@@ -150,13 +160,13 @@ class gingerPaymentDefault extends gingerGateway
         $sort_order = 0;
 
         if (defined('MODULE_PAYMENT_' . strtoupper($this->code) . '_STATUS')) {
-            $messageStack->add_session(constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ERROR_ALREADY_INSTALLED), 'error');
+            $messageStack->add_session(constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ERROR_ALREADY_INSTALLED'), 'error');
             zen_redirect(zen_href_link(FILENAME_MODULES, 'set=payment&module=' . $this->code, 'SSL'));
             return 'failed';
         }
         $this->setConfigurationField([
-            'configuration_title' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _STATUS_TEXT),
-            'configuration_description' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _STATUS_DESCRIPTION),
+            'configuration_title' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_STATUS_TEXT'),
+            'configuration_description' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_STATUS_DESCRIPTION'),
             'configuration_key' => 'MODULE_PAYMENT_' . strtoupper($this->code) . '_STATUS',
             'configuration_value' => 'True',
             'configuration_group_id' => 6,
@@ -166,18 +176,18 @@ class gingerPaymentDefault extends gingerGateway
         $sort_order += 1;
 
         $this->setConfigurationField([
-            'configuration_title' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _DISPLAY_TITLE_TEXT),
-            'configuration_description' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _DISPLAY_TITLE_DESCRIPTION),
+            'configuration_title' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_DISPLAY_TITLE_TEXT'),
+            'configuration_description' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_DISPLAY_TITLE_DESCRIPTION'),
             'configuration_key' => 'MODULE_PAYMENT_' . strtoupper($this->code) . '_DISPLAY_TITLE',
-            'configuration_value' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _TEXT_TITLE),
+            'configuration_value' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_TEXT_TITLE'),
             'configuration_group_id' => 6,
             'sort_order' => $sort_order
         ]);
         $sort_order += 1;
 
         $this->setConfigurationField([
-            'configuration_title' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _SORT_ORDER_TEXT),
-            'configuration_description' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _SORT_ORDER_DESCRIPTION),
+            'configuration_title' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_SORT_ORDER_TEXT'),
+            'configuration_description' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_SORT_ORDER_DESCRIPTION'),
             'configuration_key' => 'MODULE_PAYMENT_' . strtoupper($this->code) . '_SORT_ORDER',
             'configuration_value' => 0,
             'configuration_group_id' => 6,
@@ -186,8 +196,8 @@ class gingerPaymentDefault extends gingerGateway
         $sort_order += 1;
 
         $this->setConfigurationField([
-            'configuration_title' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ZONE_TEXT),
-            'configuration_description' => constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ZONE_DESCRIPTION),
+            'configuration_title' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ZONE_TEXT'),
+            'configuration_description' => constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ZONE_DESCRIPTION'),
             'configuration_key' => 'MODULE_PAYMENT_' . strtoupper($this->code) . '_ZONE',
             'configuration_value' => 0,
             'configuration_group_id' => 6,
@@ -207,7 +217,7 @@ class gingerPaymentDefault extends gingerGateway
      */
     public function loadLanguageFile($code = null)
     {
-        $language = $_SESSION['language'] ?: GINGER_DEFAULT_LANGUAGE;
+        $language = $_SESSION['language'] ?: constant('GINGER_DEFAULT_LANGUAGE');
 
         require_once(zen_get_file_directory(
             DIR_FS_CATALOG . DIR_WS_LANGUAGES . $language . '/modules/payment/',
@@ -344,17 +354,17 @@ class gingerPaymentDefault extends gingerGateway
             global $messageStack;
 
             if (empty($_POST[$this->code . '_gender'])) {
-                $messageStack->add_session('checkout_payment', constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ERROR_GENDER), 'error');
+                $messageStack->add_session('checkout_payment', constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ERROR_GENDER'), 'error');
                 zen_redirect(zen_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL'));
             }
 
             if (empty($_POST[$this->code . '_dob'])) {
-                $messageStack->add_session('checkout_payment', constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ERROR_DOB), 'error');
+                $messageStack->add_session('checkout_payment', constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ERROR_DOB'), 'error');
                 zen_redirect(zen_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL'));
             }
 
             if (empty($_POST[$this->code . '_terms_and_conditions'])) {
-                $messageStack->add_session('checkout_payment', constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ERROR_TERMS_AND_CONDITIONS), 'error');
+                $messageStack->add_session('checkout_payment', constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ERROR_TERMS_AND_CONDITIONS'), 'error');
                 zen_redirect(zen_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL'));
             }
         }
@@ -383,7 +393,7 @@ class gingerPaymentDefault extends gingerGateway
      */
     public function update_status()
     {
-        $this->updateModuleVisibility(constant(MODULE_PAYMENT_ . strtoupper($this->code) . _ZONE));
+        $this->updateModuleVisibility(constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_ZONE'));
         return null;
     }
 
