@@ -69,4 +69,8 @@
 * Updated field, which is has been used for before capturing check.
 * Solved iDeal issuer form waring message, where constant prints instead of a label.
 * Solved issue when payment couldn't be switched off.
-* Replaced constant version to placeholders, to replace it on GitHub actions steps according to tag version. 
+* Replaced constant version to placeholders, to replace it on GitHub actions steps according to tag version.
+
+## 1.3.4 ##
+
+* Updated Language files, added few more "default" constants.
