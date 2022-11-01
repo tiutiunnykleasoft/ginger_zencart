@@ -36,3 +36,22 @@ define('MODULE_PAYMENT_'.$prefix.'_ERROR_TRANSACTION', "There was an error proce
 define('MODULE_PAYMENT_'.$prefix.'_ERROR_ALREADY_INSTALLED', "The Ginger Tooling module is already installed.");
 
 define('MODULE_PAYMENT_'.$prefix.'_WARNING_BAD_CURRENCIES_LIST',"<br>The settings for allowed currencies  entered in not right format, this field will be ignored.");
+
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_TITLE', '<strong>Refund Transaction</strong>');
+
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_REFUND_CONFIRM_CHECK', ' Check this box to confirm your intent');
+define('MODULE_PAYMENT_'.$prefix.'_ENTRY_REFUND_AMOUNT_TEXT', 'Enter the amount to refund');
+define('MODULE_PAYMENT_'.$prefix.'_ENTRY_REFUND_TEXT_COMMENTS', 'Notes (will show on Order History):');
+define('MODULE_PAYMENT_'.$prefix.'_ENTRY_REFUND_DEFAULT_MESSAGE', 'Refunded');
+define('MODULE_PAYMENT_'.$prefix.'_ENTRY_REFUND_BUTTON_TEXT', 'Do Refund');
+
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_INVALID_REFUND_AMOUNT', 'Refund failed: invalid amount.');
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_REFUND_ERROR', 'Refund request failed.');
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_REFUND_ID_ERROR', 'Failed. Only paid order is supporting refund.');
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_REFUND_SUCCESS', 'Successfully refunded.');
+
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_PARTIALLY_TEXT', 'Partially refund');
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_TOTAL_TEXT', 'Refund full order amount');
+
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_NOT_ALLOW_TEXT', '<strong>Refund not allow.</strong>');
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_ALREADY_COMPLETED_TEXT', '<strong>Refund already completed.</strong>');
