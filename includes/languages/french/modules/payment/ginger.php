@@ -1,6 +1,6 @@
 <?php
 $prefix = strtoupper(explode('.php',basename(__FILE__))[0]);
-define('MODULE_PAYMENT_' . $prefix . '_STATUS', "True");
+define('MODULE_PAYMENT_' . $prefix . '_STATUS', "False");
 define('MODULE_PAYMENT_' . $prefix . '_SORT_ORDER', 1);
 
 define('MODULE_PAYMENT_'.$prefix.'_TEXT_TITLE', "Ginger Tooling");
@@ -40,3 +40,22 @@ define('MODULE_PAYMENT_'.$prefix.'_ERROR_API_KEY', "La clé API n'a pas été d�
 define('MODULE_PAYMENT_'.$prefix.'_ERROR_TRANSACTION', "Il y avait malheureusement un problème traitant votre paiement. Veuillez reessayer le paiement s'il vous plaît.");
 
 define('MODULE_PAYMENT_'.$prefix.'_WARNING_BAD_CURRENCIES_LIST',"<br>Les paramètres pour les devises autorisées saisies dans un format incorrect, ce champ sera ignoré.");
+
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_TITLE', "<strong>Remboursement de l'opération</strong>");
+
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_REFUND_CONFIRM_CHECK', ' Cochez cette case pour confirmer votre intention');
+define('MODULE_PAYMENT_'.$prefix.'_ENTRY_REFUND_AMOUNT_TEXT', 'Entrez le montant à rembourser');
+define('MODULE_PAYMENT_'.$prefix.'_ENTRY_REFUND_TEXT_COMMENTS', "Notes (s'afficheront dans l'historique des commandes):");
+define('MODULE_PAYMENT_'.$prefix.'_ENTRY_REFUND_DEFAULT_MESSAGE', 'Remboursé');
+define('MODULE_PAYMENT_'.$prefix.'_ENTRY_REFUND_BUTTON_TEXT', 'Rembourser');
+
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_INVALID_REFUND_AMOUNT', "Échec du remboursement : montant non valide.");
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_REFUND_ERROR', 'La demande de remboursement a échoué.');
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_REFUND_ID_ERROR', "Manqué. Seule la commande payée prend en charge le remboursement.");
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_REFUND_SUCCESS', 'Remboursement réussi.');
+
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_PARTIALLY_TEXT', "Remboursement partiel");
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_TOTAL_TEXT', "Rembourser le montant total de la commande");
+
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_NOT_ALLOW_TEXT', '<strong>Remboursement non autorisé.</strong>');
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_ALREADY_COMPLETED_TEXT', '<strong>Remboursement déjà effectué.</strong>');

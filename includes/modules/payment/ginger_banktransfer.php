@@ -16,6 +16,6 @@ class ginger_banktransfer extends gingerPaymentDefault
     function __construct()
     {
         parent::__construct();
-        $this->email_footer = constant(MODULE_PAYMENT_ . strtoupper($this->code) . _INFORMATION_EMAIL);
+        $this->email_footer = constant('MODULE_PAYMENT_' . strtoupper($this->code) . '_INFORMATION_EMAIL');
     }
 }

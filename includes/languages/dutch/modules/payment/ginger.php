@@ -1,6 +1,6 @@
 <?php
 $prefix = strtoupper(explode('.php', basename(__FILE__))[0]);
-define('MODULE_PAYMENT_' . $prefix . '_STATUS', "True");
+define('MODULE_PAYMENT_' . $prefix . '_STATUS', "False");
 define('MODULE_PAYMENT_' . $prefix . '_SORT_ORDER', 1);
 
 define('MODULE_PAYMENT_' . $prefix . '_TEXT_TITLE', "Ginger Tooling");
@@ -40,3 +40,22 @@ define('MODULE_PAYMENT_' . $prefix . '_ERROR_API_KEY', "De API-sleutel is niet i
 define('MODULE_PAYMENT_' . $prefix . '_ERROR_TRANSACTION', "Helaas is er een fout opgetreden tijdens het verwerken van uw betaling. Probeer het alstublieft nogmaals.");
 
 define('MODULE_PAYMENT_' . $prefix . '_WARNING_BAD_CURRENCIES_LIST', "<br>De instellingen voor toegestane valuta's zijn in een onjuist formaat ingevoerd, dit veld wordt genegeerd.");
+
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_TITLE', '<strong>Terugbetaling Transactie</strong>');
+
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_REFUND_CONFIRM_CHECK', ' Vink dit vakje aan om je intentie te bevestigen');
+define('MODULE_PAYMENT_'.$prefix.'_ENTRY_REFUND_AMOUNT_TEXT', 'Voer het terug te betalen bedrag in');
+define('MODULE_PAYMENT_'.$prefix.'_ENTRY_REFUND_TEXT_COMMENTS', 'Opmerkingen (wordt weergegeven in de bestelgeschiedenis):');
+define('MODULE_PAYMENT_'.$prefix.'_ENTRY_REFUND_DEFAULT_MESSAGE', 'Terugbetaald');
+define('MODULE_PAYMENT_'.$prefix.'_ENTRY_REFUND_BUTTON_TEXT', 'Terugbetalen');
+
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_INVALID_REFUND_AMOUNT', 'Terugbetaling mislukt: ongeldig bedrag.');
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_REFUND_ERROR', 'Teruggaveverzoek mislukt.');
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_REFUND_ID_ERROR', 'mislukt. Alleen betaalde bestelling ondersteunt terugbetaling.');
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_REFUND_SUCCESS', 'Succesvol terugbetaald.');
+
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_PARTIALLY_TEXT', 'Gedeeltelijk terugbetalen');
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_TOTAL_TEXT', 'Volledige orderbedrag terugbetalen');
+
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_NOT_ALLOW_TEXT', '<strong>Terugbetaling niet toegestaan.</strong>');
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_ALREADY_COMPLETED_TEXT', '<strong>Terugbetaling al voltooid.</strong>');

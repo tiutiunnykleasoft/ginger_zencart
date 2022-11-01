@@ -1,6 +1,6 @@
 <?php
 $prefix = strtoupper(explode('.php',basename(__FILE__))[0]);
-define('MODULE_PAYMENT_' . $prefix . '_STATUS', "True");
+define('MODULE_PAYMENT_' . $prefix . '_STATUS', "False");
 define('MODULE_PAYMENT_' . $prefix . '_SORT_ORDER', 1);
 
 define('MODULE_PAYMENT_'.$prefix.'_TEXT_TITLE', "Ginger Tooling");
@@ -40,3 +40,22 @@ define('MODULE_PAYMENT_'.$prefix.'_ERROR_API_KEY', "Der API-Schlüssel wurde nic
 define('MODULE_PAYMENT_'.$prefix.'_ERROR_TRANSACTION', "Leider ist ein Fehler bei der Verarbeitung Ihrer Bezahlung aufgetreten. Bitte versuchen Sie nochmals.");
 
 define('MODULE_PAYMENT_'.$prefix.'_WARNING_BAD_CURRENCIES_LIST',"<br>Die Einstellungen für zulässige Währungen werden im nicht richtigen Format eingegeben. Dieses Feld wird ignoriert.");
+
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_TITLE', '<strong>Rückerstattung Transaktion</strong>');
+
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_REFUND_CONFIRM_CHECK', ' Aktion bestätigen');
+define('MODULE_PAYMENT_'.$prefix.'_ENTRY_REFUND_AMOUNT_TEXT', 'Geben Sie den Betrag ein');
+define('MODULE_PAYMENT_'.$prefix.'_ENTRY_REFUND_TEXT_COMMENTS', 'Notizen (werden im Bestellverlauf angezeigt):');
+define('MODULE_PAYMENT_'.$prefix.'_ENTRY_REFUND_DEFAULT_MESSAGE', 'Rückerstatten');
+define('MODULE_PAYMENT_'.$prefix.'_ENTRY_REFUND_BUTTON_TEXT', 'Machen Sie eine Rückerstattung');
+
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_INVALID_REFUND_AMOUNT', 'Rückerstattung fehlgeschlagen: Ungültiger Betrag.');
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_REFUND_ERROR', 'Rückerstattung Anforderung fehlgeschlagen.');
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_REFUND_ID_ERROR', 'Gescheitert. Nur die bezahlte Bestellung unterstützt die Rückerstattung.');
+define('MODULE_PAYMENT_'.$prefix.'_TEXT_REFUND_SUCCESS', 'Erfolgreich erstattet.');
+
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_PARTIALLY_TEXT', 'Teilweise erstatten');
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_TOTAL_TEXT', 'Vollständigen Bestellbetrag zurückerstatten');
+
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_NOT_ALLOW_TEXT', '<strong>Rückerstattung nicht erlaubt.</strong>');
+define('MODULE_PAYMENT_'.$prefix.'_REFUND_ALREADY_COMPLETED_TEXT', '<strong>Rückerstattung bereits abgeschlossen.</strong>');

@@ -61,7 +61,7 @@ class gingerPaymentDefault extends gingerGateway
 
         if ($this->enabled == true) {
             try {
-                $this->ginger = static::getClient();
+                $this->ginger = GingerClient::getClient();
             } catch (Exception $exception) {
                 $this->title .= '<span class="alert">' . $exception->getMessage() . '</span>';
             }
@@ -397,5 +397,52 @@ class gingerPaymentDefault extends gingerGateway
         return null;
     }
 
+    /**
+     * Default function for show additional payment handling options.
+     *
+     * @return string;
+     */
+    public function admin_notification()
+    {
+        global $order;
 
+        $prefix = strtoupper(GINGER_BANK_PREFIX);
+        $this->loadLanguageFile($prefix);
+
+        $validResult = $this->refundValidate($order, $prefix);
+        return $validResult === true ? $this->getRefundForm($this->getRefundAmount($order->info), $prefix) : '</br><p>'.constant($validResult).'</p>';
+    }
+
+    /**
+     * Default function when merchant clicked on do refund button on order edit page,
+     * the refund money order method.
+     *
+     * @return bool;
+     */
+        public function _doRefund($oID)
+    {
+        global $order, $messageStack;
+
+        $prefix = strtoupper(GINGER_BANK_PREFIX);
+        $this->loadLanguageFile($prefix);
+
+        $gingerOrderId = $this->getOrderIdFromHistory($oID);
+        $refundData = $this->getInfoForRefundOrder($order);
+
+        if (!$this->refundInputDataValidate($prefix, $refundData['amount'], $gingerOrderId, $messageStack, $order->info)) {
+            return false;
+        }
+
+        try {
+            $this->ginger->refundOrder($gingerOrderId, $refundData);
+            $comments = 'REFUNDED: ' . $refundData['amount'] * 0.01 . "EUR\n" . $_POST['refnote'] ?? '';
+            zen_update_orders_history($oID, $comments, null, 4, 0);
+        } catch (\Exception $e) {
+            $messageStack->add_session(constant(MODULE_PAYMENT_ .$prefix. _TEXT_REFUND_ERROR), 'error');
+            return false;
+        }
+
+        $messageStack->add_session(constant(MODULE_PAYMENT_ .$prefix. _TEXT_REFUND_SUCCESS), 'success');
+        return false;
+    }
 }
