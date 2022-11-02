@@ -51,7 +51,7 @@ class GingerRefund extends GingerOrder
 
 
     /**
-     * Default function of build for create refund money order.
+     * Default function of build for create refund order.
      *
      * @return string;
      */
