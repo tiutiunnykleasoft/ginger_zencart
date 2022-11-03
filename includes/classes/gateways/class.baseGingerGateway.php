@@ -11,7 +11,7 @@ class baseGingerGateway extends GingerRefund
      *
      * @var string
      */
-    public $moduleVersion = "1.3.4";
+    public $moduleVersion = "1.4";
 
     /**
      * @var /Ginger/ApiClient Ginger Payments SDK client

@@ -74,3 +74,15 @@
 ## 1.3.4 ##
 
 * Updated Language files, added few more "default" constants.
+
+## 1.4.0 ##
+
+* Implemented refund functionality.
+* Created refund, client, order builders.
+* Data from extra array moved to client array.
+* Created form for refund on admin order detail page.
+* Class inheritance structure changed.
+* Updated Language files, added constants for refund.
+* Solved issue with amount, which was not correctly transmitted in the order data to API.
+* Implemented `RefundTest.php`, `MockedRefundBuilder.php` to cover refund functionality with PHPUnit tests.
+* Implemented `OrderStub.php`, `MockedOrderHelper.php` to eliminate code duplication in PHPUnit tests.
