@@ -38,7 +38,8 @@ const GINGER_PAYMENT_MAPPING = [
     'swish' => 'swish',
     'klarnadirectdebit' => 'klarna-direct-debit',
     'sofort' => 'sofort',
-    'mobilepay' => 'mobilepay'
+    'mobilepay' => 'mobilepay',
+    'giropay' => 'giropay'
 ];
 
 function getBankRepoPrefix(): string
