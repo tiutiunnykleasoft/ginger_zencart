@@ -48,4 +48,5 @@ class ginger_ideal extends gingerPaymentDefault
             zen_redirect(zen_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL'));
         }
     }
+    
 }

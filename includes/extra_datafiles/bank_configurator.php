@@ -33,7 +33,12 @@ const GINGER_PAYMENT_MAPPING = [
     'amex' => 'amex',
     'tikkiepaymentrequest' => 'tikkie-payment-request',
     'wechat' => 'wechat',
-    'googlepay' => 'google-pay'
+    'googlepay' => 'google-pay',
+    'viacash' => 'viacash',
+    'swish' => 'swish',
+    'klarnadirectdebit' => 'klarna-direct-debit',
+    'sofort' => 'sofort',
+    'mobilepay' => 'mobilepay'
 ];
 
 function getBankRepoPrefix(): string
